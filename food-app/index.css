@@ -32,7 +32,7 @@
 
 .res-card{
     cursor: pointer;
-    width: 250px;
+    width: 200px;
     padding: 5px;
     margin: 20px;
     background-color:aliceblue;
@@ -74,7 +74,7 @@
 
 .shimmer-card{
     cursor: pointer;
-    width: 250px;
+    width: 200px;
     height: 300px;
     padding: 5px;
     margin: 20px;
