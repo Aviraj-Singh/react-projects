@@ -42,11 +42,19 @@
     margin: 10px;
     background-color:aliceblue;
     color: black;
-    height: 380px;
+    height: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 5px;
     overflow: hidden;
+}
+
+.res-card h3,
+.res-card h5,
+.res-card p,
+.res-card em {
+    margin: 5px 0;
+    padding: 0;
 }
 
 .restaurant-link{
@@ -60,6 +68,7 @@
 .card-image{
     width: 100%;
     height: 100px;
+    margin-bottom: 2px;
 }
 
 .filter{
