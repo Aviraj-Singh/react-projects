@@ -36,24 +36,25 @@ const Body = () => {
     <OfflineMessage/>
   )};
 
-  return restaurants.length === 0 ? (<Shimmer />) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input type="text" className="search-box" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
-          <button className="search-btn"
+  return (
+    <div className="w-[95%] mx-auto">
+      <div className="flex items-center">
+        <div className="p-5">
+          <input type="text" className="m-2.5 h-7.5 border-slate-200 border-2 rounded-lg p-2 hover:border-black" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
+          <button className="h-7.5 cursor-pointer bg-slate-50 border-2 rounded-lg p-2 hover:bg-slate-800 hover:text-white"
             onClick={() => {
               const filteredRestaurants = restaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
               setFilteredRestaurants(filteredRestaurants);
             }}>Search</button>
         </div>
-        <button className="filter-btn" onClick={clickHandler}>Top Rated Restaurants</button>
+        <button className="m-2.5 cursor-pointer h-7.5 bg-slate-800 text-white border-2 rounded-lg p-2 hover:bg-slate-200 hover:text-black" onClick={clickHandler}>Top Rated Restaurants</button>
       </div>
-      <div className="res-container">
+      {restaurants.length === 0 ? (<Shimmer />) : 
+      (<div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => {
           if (restaurant?.info) {
             return (
-              <Link to={"/restaurants/"+ restaurant.info.id} key={restaurant.info.id} className="restaurant-link">
+              <Link to={"/restaurants/"+ restaurant.info.id} key={restaurant.info.id} className="no-underline">
                 <RestaurantCard
                   resData={restaurant.info}
                 />
@@ -63,7 +64,7 @@ const Body = () => {
             return null;
           }
         })}
-      </div>
+      </div>)}
     </div>
   );
 };
