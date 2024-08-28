@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
@@ -9,6 +9,8 @@ const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([])
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   const clickHandler = () => {
     const filteredRestaurants = restaurants.filter((res) => res.info.avgRating > 4.2);
@@ -55,9 +57,7 @@ const Body = () => {
           if (restaurant?.info) {
             return (
               <Link to={"/restaurants/"+ restaurant.info.id} key={restaurant.info.id} className="no-underline">
-                <RestaurantCard
-                  resData={restaurant.info}
-                />
+                {restaurant.info.promoted ? <RestaurantCardPromoted resData={restaurant.info}/> : <RestaurantCard resData={restaurant.info}/>}
               </Link>
             );
           } else {

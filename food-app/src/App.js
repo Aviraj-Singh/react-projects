@@ -8,13 +8,15 @@ import Error from "./components/Error";
 import Menu from "./components/Menu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
-const About = lazy(() => import ('./components/About'))
+const About = lazy(() => import ('./components/About'));
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   return (
     <div className="bg-pink-900">
       <Header />
       <Outlet />
+      <Footer/>
     </div>
   );
 };
