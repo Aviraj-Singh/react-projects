@@ -7,17 +7,22 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Menu from "./components/Menu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 import Shimmer from "./components/Shimmer";
 const About = lazy(() => import ('./components/About'));
 import Footer from "./components/Footer";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   return (
-    <div className="bg-pink-900">
+    <Provider store={appStore}>
+    <div className="">    
       <Header />
       <Outlet />
       <Footer/>
     </div>
+    </Provider>
   );
 };
 
@@ -44,6 +49,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <Menu/>
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       }
     ],
     errorElement: <Error/>
