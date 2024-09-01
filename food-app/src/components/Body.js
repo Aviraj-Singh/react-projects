@@ -42,7 +42,7 @@ const Body = () => {
     <div className="w-[95%] mx-auto">
       <div className="flex items-center">
         <div className="p-5">
-          <input type="text" className="m-2.5 h-7.5 border-slate-200 border-2 rounded-lg p-2 hover:border-black" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
+          <input type="text" data-testid="searchInput" className="m-2.5 h-7.5 border-slate-200 border-2 rounded-lg p-2 hover:border-black" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
           <button className="h-7.5 cursor-pointer bg-slate-50 border-2 rounded-lg p-2 hover:bg-slate-800 hover:text-white"
             onClick={() => {
               const filteredRestaurants = restaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));

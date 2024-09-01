@@ -17,7 +17,7 @@ const ItemsList = ({ itemCards }) => {
                     : item?.card?.info?.finalPrice
                         ? item?.card?.info?.finalPrice / 100
                         : item?.card?.info?.price / 100;
-                return <div className="border border-black m-0.5 w-full p-1 bg-white/40 backdrop-blur-md rounded-lg" key={item?.card?.info?.id}>
+                return <div data-testid="foodItems" className="border border-black m-0.5 w-full p-1 bg-white/40 backdrop-blur-md rounded-lg" key={item?.card?.info?.id}>
                     <div className="flex gap-3 justify-between">
                         <div className="w-9/12">
                             <p className="text-lg font-bold">{item?.card?.info?.name} {item?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" ? "🔴" : "🟢"}</p>
